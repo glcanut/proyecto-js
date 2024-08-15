@@ -1,0 +1,125 @@
+body {
+    background-color: #343a40;
+    color: white;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    padding: 0.5rem;
+    border-bottom: 1px solid gray;
+}
+
+.main-container {
+    height: 100vh;
+}
+
+footer {
+    border-top: 1px solid gray;
+}
+
+.sidebar {
+    background-color: #343a40;
+    border-right: 1px solid gray;
+    height: 100%;
+}
+
+.navbar,
+.footer,
+.main-content {
+    background-color: #495057;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.navbar-brand,
+.nav-link {
+    color: white !important;
+}
+
+.iconColor,
+footer {
+    color: white;
+}
+
+.toolIcon {
+    font-size: 25px;
+}
+
+.collectionIcons {
+    color: black;
+    display: flex;
+    justify-content: end;
+}
+
+.collectionImage {
+    width: 100%;
+    height: 100%;
+}
+
+.books {
+    background: url("../img/books.jpg") round;
+}
+
+.mangas-comics {
+    background: url("../img/mangas.jpg") round;
+}
+
+.videogames {
+    background: url("../img/videoGames.jpg") round;
+}
+
+.header .row {
+    width: 100%;
+}
+
+.main-card-container {
+    margin: 1rem;
+    border-radius: 1rem;
+    background-color: #495057;
+    padding: 1rem;
+}
+
+.btnSize {
+    font-size: 30px;
+}
+
+.btnLogin {
+    display: flex;
+    justify-content: flex-end;
+    height: 40px;
+}
+
+.btnStyle {
+    display: contents;
+}
+
+.wlButtonsStyles {
+    height: 130px;
+    width: 200px;
+    font-size: x-large;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.wlButtonsStyles:hover {
+    opacity: 0.5;
+}
+
+.wlToolsStyles {
+    justify-content: end;
+}
+
+@media (max-width: 768px) {
+    .nav-item {
+        text-align: center;
+    }
+
+    .nav-item a {
+        display: grid;
+    }
+
+    .mainContent {
+        overflow: auto;
+    }
+}
