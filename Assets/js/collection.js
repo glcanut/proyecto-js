@@ -10,10 +10,7 @@ const rendercards = (arrayCards) => {
     dataCard.className = "card mb-3";
     dataCard.innerHTML = `
           <div class="row g-0">
-            <div class="col-md-4">
               <img src=${card.image} class="img-fluid rounded-start collectionImage" alt="...">
-            </div>
-            <div class="col-md-8">
               <div class="card-body d-flex flex-column">
                   <h5 class="card-title">${card.name}</h5>
                   <p class="card-text">Author: ${card.autor}</p>
@@ -24,10 +21,8 @@ const rendercards = (arrayCards) => {
                       <i onclick="deleteCard(${card.id})" class="bi bi-trash-fill me-2"></i>
                   </div>
               </div>
-            </div>
           </div>
         `;
-
     containerCards.appendChild(dataCard);
   });
 };
@@ -35,9 +30,20 @@ const rendercards = (arrayCards) => {
 rendercards(cards);
 
 const deleteCard = (id) => {
-  cards = cards.filter((element) => element.id !== id);
-  localStorage.setItem("add", JSON.stringify(cards));
-  rendercards(cards);
+  Swal.fire({
+    title: "Seguro que deseas borrarlo?",
+    showDenyButton: true,
+    confirmButtonText: "Si",
+    denyButtonText: "No",
+    icon: "error",
+  }).then((res) => {
+    if (res.isConfirmed) {
+      cards = cards.filter((element) => element.id !== id);
+      localStorage.setItem("add", JSON.stringify(cards));
+      rendercards(cards);
+    } else if (res.isDenied) {
+    }
+  });
 };
 
 const editCard = (id) => {
