@@ -21,7 +21,10 @@ const saveData = () => {
   let image = "https://via.placeholder.com/200";
 
   if (name === "" || autor === "" || category === "" || description === "") {
-    alert("Por favor, complete todos los campos");
+    Swal.fire({
+      title: "Por favor, complete todos los campos",
+      icon: "error",
+    });
     return;
   }
 
@@ -32,6 +35,11 @@ const saveData = () => {
   localStorage.setItem("add", JSON.stringify(cards));
 
   id++;
+
+  Swal.fire({
+    title: "se agrego correctamente",
+    icon: "success",
+  });
 
   clearForm();
 };
