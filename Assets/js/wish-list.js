@@ -1,13 +1,15 @@
 let videogames = [];
-const getVideoGames = fetch("https://videogamedb.uk:443/api/videogame");
 
-getVideoGames
-  .then((res) => res.json())
-  .then((res) => {
-    videogames = res;
-    rendercards(videogames);
-  })
-  .catch((error) => console.log(error));
+document.addEventListener("DOMContentLoaded", () => {
+  const getVideoGames = fetch("https://videogamedb.uk:443/api/videogame");
+  getVideoGames
+    .then((res) => res.json())
+    .then((res) => {
+      videogames = res;
+      rendercards(videogames);
+    })
+    .catch((error) => console.log(error));
+});
 
 const rendercards = (arrayCards) => {
   let containerCards = document.getElementById("wlCardContainer");
@@ -49,7 +51,18 @@ const getVideoGameById = (id) => {
     .catch((error) => console.log(error));
 };
 
-const btnSearchGame = document.getElementById("btn-search");
-btnSearchGame.addEventListener("click", () => {
-  getVideoGameById(id);
-});
+// const btnSearchGame = document.getElementById("btn-search");
+// btnSearchGame.addEventListener("click", () => {
+//   getVideoGameById(id);
+// });
+
+const inputSearch = document.getElementById("search");
+if (inputSearch) {
+  inputSearch.addEventListener("input", (evento) => {
+    let value = evento.target.value.toLowerCase();
+    let arrayFiltrado = videogames.filter((videogame) =>
+      videogame.name.toLowerCase().includes(value)
+    );
+    rendercards(arrayFiltrado);
+  });
+}
